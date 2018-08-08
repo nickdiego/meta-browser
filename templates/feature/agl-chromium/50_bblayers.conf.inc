@@ -1,0 +1,4 @@
+BBLAYERS =+ "\
+  ${METADIR}/meta-browser \
+  ${METADIR}/meta-openembedded/meta-gnome \
+  "
