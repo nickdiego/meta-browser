@@ -84,6 +84,7 @@ DEPENDS += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio', '', d)} \
     qemu-native \
     virtual/libgl \
+    wayland-native \
 "
 DEPENDS_append_x86 = " yasm-native"
 DEPENDS_append_x86-64 = " yasm-native"
@@ -131,6 +132,8 @@ GN_ARGS = " \
         use_system_freetype=true \
         use_system_libjpeg=true \
 "
+
+GN_ARGS += 'system_wayland_scanner_path="${STAGING_BINDIR_NATIVE}/wayland-scanner"'
 
 # Closure_compile needs to be disabled to avoid pulling in java dependencies,
 # which are typicaly not wanted. It started to happen after https://crrev.com/c/1278470
